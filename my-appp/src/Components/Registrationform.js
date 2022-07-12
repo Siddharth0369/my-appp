@@ -26,6 +26,38 @@ const RegistrationForm=() =>{
   
     const submitHandler = e =>{
         e.preventDefault();
+
+        var x = document.forms["myForm"]["firstName"].value;
+          if (x == "" || x == null) {
+            alert("Name must be filled out");
+            return false;
+          }
+          var y = document.forms["myForm"]["lastName"].value;
+          if (y == "" || y == null) {
+            alert("Name must be filled out");
+            return false;
+          }
+          var z = document.forms["myForm"]["email"].value;
+          if (z == "" || z == null) {
+            alert("Name must be filled out");
+            return false;
+          }
+          var a = document.forms["myForm"]["password"].value;
+          if (a == "" || a == null) {
+            alert("Name must be filled out");
+            return false;
+          }
+          var b = document.forms["myForm"]["confirmPassword"].value;
+          if (b == "" || b == null) {
+            alert("Name must be filled out");
+            return false;
+          }
+
+
+
+
+
+
         console.log(data.email)
         localStorage.setItem('email',JSON.stringify(data.email))
         fetch("http://localhost:9002/auth/register/"+(JSON.parse(localStorage.getItem('email'))),
@@ -59,7 +91,7 @@ const RegistrationForm=() =>{
         
     <Link to="/Home" style={{color:"#FF5B00",fontSize:"30px"}}>Back</Link>
     <div>
-        <form className='hey' onSubmit={submitHandler}  >
+        <form className='hey' onSubmit={submitHandler} name="myForm" method='post' required >
             
            
           

@@ -50,6 +50,21 @@ const changeHandler= b => {
 
 const submitHandler = b=>{
   b.preventDefault();
+
+  var x = document.forms["myForm"]["email"].value;
+  if (x == "" || x == null) {
+    alert("Name must be filled out");
+    return false;
+  }
+
+  var y = document.forms["myForm"]["password"].value;
+  if (y == "" || y == null) {
+    alert("Name must be filled out");
+    return false;
+  }
+
+
+
   (localStorage.setItem('email',JSON.stringify(authdata.email)))
   
   // console.log(b.target.email)
@@ -108,7 +123,7 @@ const submitHandler = b=>{
       <center>
 
       
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler} name="myForm" method='post' required>
         <label style={{'color': '#ff5b00','fontFamily':'Tahoma'}} >  EMAIL   : </label>
         <input type="email" name="email" placeholder="Email" onChange={changeHandler} className="rounded"/>
         <br></br>
